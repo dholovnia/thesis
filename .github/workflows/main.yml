@@ -16,6 +16,9 @@ jobs:
 
       - name: minify html files
         uses: emepetres/html-minifier-action@v1
+        with:
+          minifyJS: false
+          minifyCSS: false
 
       - name: auto commit the minified files
         uses: stefanzweifel/git-auto-commit-action@v5
