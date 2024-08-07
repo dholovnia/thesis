@@ -20,6 +20,13 @@ jobs:
           minifyJS: false
           minifyCSS: false
 
+      - name: Compress Images
+        id: calibre
+        uses: calibreapp/image-actions@main
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          compressOnly: true
+
       - name: auto commit the minified files
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
