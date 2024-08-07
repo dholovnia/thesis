@@ -16,11 +16,8 @@ jobs:
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           compressOnly: true
-      - name: Create New Pull Request If Needed
+      - name: auto commit the minified images
         if: steps.calibre.outputs.markdown != ''
-        uses: peter-evans/create-pull-request@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          title: Compress Images
-          branch-suffix: timestamp
-          commit-message: Compressed Images
-          body: ${{ steps.calibre.outputs.markdown }}
+          commit_message: "bot: Add auto minified images"
