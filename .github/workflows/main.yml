@@ -38,6 +38,19 @@ jobs:
         run: |
           aws s3 sync . s3://${{ secrets.S3_BUCKET_NAME }} --exclude ".git/*" --delete
 
+      - name: Install Azure CLI
+        run: |
+          curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+      - name: Upload files to Azure Blob Storage
+        run: |
+          az storage blob upload-batch \
+            --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} \
+            --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }} \
+            --destination ${{ secrets.AZURE_STORAGE_CONTAINER_NAME }} \
+            --source . \
+            --pattern "*"
+
 #      - name: auto commit the minified files
 #        uses: stefanzweifel/git-auto-commit-action@v5
 #        with:
