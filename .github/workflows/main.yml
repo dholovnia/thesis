@@ -47,7 +47,7 @@ jobs:
           az storage blob upload-batch \
             --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} \
             --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }} \
-            --destination '\$web' \
+            --destination '$web' \
             --source . \
             --pattern "*"
 
@@ -56,4 +56,4 @@ jobs:
 #        with:
 #          commit_message: "bot: Add auto minified files"
 #        env:
-#          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+#          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
