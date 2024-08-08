@@ -56,4 +56,4 @@ jobs:
 #        with:
 #          commit_message: "bot: Add auto minified files"
 #        env:
-#          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
